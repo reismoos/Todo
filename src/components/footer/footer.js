@@ -1,21 +1,29 @@
 import './footer.css';
 
-const Footer = () => {
+const Footer = ({onChangeFilter, filter, deleteAllCompleted, countActive}) => {
+
+    const buttonsData = [
+        {name: 'all', label: 'All'},
+        {name: 'active', label: 'Active'},
+        {name: 'completed', label: 'Completed'},
+    ]
+
+    const buttons = buttonsData.map(({name, label}) => {
+        const clazz = filter === name ? 'selected' : '';
+        return (
+            <li key={name} >
+                <button className={clazz} onClick={() => onChangeFilter(name)} >{label}</button>
+            </li>
+        )
+    })
+
     return (
         <footer className='footer'>
-            <span className="todo-count">1 items left</span>
+            <span className="todo-count">{countActive} items left</span>
             <ul className="filters">
-                <li>
-                <button className="selected">All</button>
-                </li>
-                <li>
-                <button>Active</button>
-                </li>
-                <li>
-                <button>Completed</button>
-                </li>
+                { buttons }
             </ul>
-            <button className="clear-completed">Clear completed</button>
+            <button className="clear-completed" onClick={deleteAllCompleted}>Clear completed</button>
         </footer>
     )
 }
