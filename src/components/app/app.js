@@ -7,11 +7,20 @@ import './app.css'
 
 export default class App extends Component {
 
+    createNewTask = (id, taskText) => {
+        return {
+            taskDeskription: taskText, 
+            status: 'active',
+            created: new Date(), 
+            id: id, 
+        }
+    }
+
     state = {
         tasks: [
-            {taskDeskription: 'first task', status: 'completed', id: 1, created: 'created 7 minutes ago' },
-            {taskDeskription: 'second task', status: 'editing', id: 2, created: 'created 5 minutes ago' },
-            {taskDeskription: 'third task', status: 'active', id: 3, created: 'created 2 minutes ago' },
+            this.createNewTask(1, 'first task'),
+            this.createNewTask(2, 'first task'),
+            this.createNewTask(3, 'third task'),
         ],
         filter: 'all'
     };
@@ -53,19 +62,11 @@ export default class App extends Component {
         }))
     } 
 
-    createNewTask = (id, taskText) => {
-        return {
-            taskDeskription: taskText, 
-            status: 'active', 
-            id: id, 
-            created: 'created 7 minutes ago'
-        }
-    }
+    
 
     addNewTask = (taskText) => {
         this.setState(({tasks}) => ({tasks: [...tasks, this.createNewTask(this.maxId, taskText)]}));
         this.maxId++
-        console.log(this.state);
     }
 
     filterTasks = (status) => {

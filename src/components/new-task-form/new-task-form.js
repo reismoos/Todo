@@ -1,9 +1,15 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import './new-task-form.css'
 
 export default class NewTaskForm extends Component {
     state = {
         newTodo: ''
+    }
+
+    static propTypes = {
+        addNewTask: PropTypes.func.isRequired
     }
 
     onInputChange = (e) => {

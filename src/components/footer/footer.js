@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import './footer.css';
 
 const Footer = ({onChangeFilter, filter, deleteAllCompleted, countActive}) => {
@@ -26,6 +28,13 @@ const Footer = ({onChangeFilter, filter, deleteAllCompleted, countActive}) => {
             <button className="clear-completed" onClick={deleteAllCompleted}>Clear completed</button>
         </footer>
     )
+}
+
+Footer.propTypes = {
+    onChangeFilter: PropTypes.func.isRequired,
+    filter: PropTypes.string.isRequired,
+    deleteAllCompleted: PropTypes.func,
+    countActive: PropTypes.number.isRequired
 }
 
 export default Footer;
