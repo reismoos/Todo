@@ -1,18 +1,19 @@
-import NewTaskForm from '../new-task-form/new-task-form';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+
+import NewTaskForm from '../new-task-form/new-task-form.js'
 
 import './header.css'
 
 const Header = (props) => {
-    return (
+  return (
     <header className="header">
-        <h1>todos</h1>
-        {<NewTaskForm addNewTask={props.addNewTask}/>}
+      <h1>todos</h1>
+      {<NewTaskForm addNewTask={props.addNewTask} />}
     </header>
-    )
+  )
 }
 
 Header.propTypes = {
-    addNewTask: PropTypes.func.isRequired
+  addNewTask: PropTypes.func.isRequired,
 }
-export default Header;
+export default Header
