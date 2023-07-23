@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import NewTaskForm from '../new-task-form/new-task-form.js'
 
-import './header.css'
+/* import './header.css' */
 
 const Header = (props) => {
   return (

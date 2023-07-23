@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Task from '../task/task'
 import EditTask from '../edit-task/edit-task'
 
-import './task-list.css'
+/* import './task-list.css' */
 
 const TaskList = ({ tasks, onChangeStatus, onDelete, onEdit, onEditKeyDown }) => {
   const elements = tasks.map((el) => {

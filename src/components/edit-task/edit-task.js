@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import './edit-task.css'
+/* import './edit-task.css' */
 
 export default class EditTask extends Component {
   state = {
@@ -16,10 +16,6 @@ export default class EditTask extends Component {
     this.setState({
       newTask: e.target.value,
     })
-  }
-
-  onSubmit = () => {
-    console.log(this.state.newTask)
   }
 
   render() {

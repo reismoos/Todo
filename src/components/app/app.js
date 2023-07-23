@@ -3,7 +3,7 @@ import { Component } from 'react'
 import Header from '../header'
 import TaskList from '../task-list/task-list'
 import Footer from '../footer/footer'
-import './app.css'
+/* import './app.css' */
 
 export default class App extends Component {
   state = {
@@ -14,25 +14,27 @@ export default class App extends Component {
         created: new Date(),
         id: 1,
         edit: false,
+        timer: 325,
       },
     ],
     filter: 'all',
   }
 
-  createNewTask = (id, taskText) => {
+  createNewTask = (id, taskText, timer) => {
     return {
       taskDeskription: taskText,
       status: 'active',
       created: new Date(),
       id: id,
       edit: false,
+      timer: timer,
     }
   }
 
   maxId = 100
 
   onChangeStatus = (e, id) => {
-    if (e.target.className === 'description' || e.target.className === 'toggle') {
+    if (e.target.className === 'title' || e.target.className === 'toggle') {
       let status
       const checkbox = e.currentTarget.querySelector('.toggle')
       if (e.currentTarget.parentNode.className === 'completed') {
@@ -97,8 +99,8 @@ export default class App extends Component {
     }))
   }
 
-  addNewTask = (taskText) => {
-    this.setState(({ tasks }) => ({ tasks: [...tasks, this.createNewTask(this.maxId, taskText)] }))
+  addNewTask = (taskText, timer) => {
+    this.setState(({ tasks }) => ({ tasks: [...tasks, this.createNewTask(this.maxId, taskText, timer)] }))
     this.maxId++
   }
 
