@@ -1,1 +1,1 @@
-[Ссылка на приложение](https://todo-reismoos.vercel.app/).
+[Ссылка на приложение](https://todo-git-todo-timer-reismoos.vercel.app/).
