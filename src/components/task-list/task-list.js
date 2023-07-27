@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import Task from '../task/task'
 import EditTask from '../edit-task/edit-task'
 
-/* import './task-list.css' */
-
 const TaskList = ({ tasks, onChangeStatus, onDelete, onEdit, onEditKeyDown }) => {
   const elements = tasks.map((el) => {
     const { id, edit, ...props } = el
@@ -13,7 +11,7 @@ const TaskList = ({ tasks, onChangeStatus, onDelete, onEdit, onEditKeyDown }) =>
       <li className={clazz} key={id}>
         <Task
           task={props}
-          onChangeStatus={(e) => onChangeStatus(e, id)}
+          onChangeStatus={(event) => onChangeStatus(event, id)}
           onDelete={() => onDelete(id)}
           onEdit={() => onEdit(id)}
         />

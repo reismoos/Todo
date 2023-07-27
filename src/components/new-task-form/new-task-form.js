@@ -1,8 +1,6 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 
-/* import './new-task-form.css' */
-
 export default class NewTaskForm extends Component {
   state = {
     newTodo: '',
@@ -14,31 +12,31 @@ export default class NewTaskForm extends Component {
     addNewTask: PropTypes.func.isRequired,
   }
 
-  onInputChangeTask = (e) => {
+  onInputChangeTask = (event) => {
     this.setState({
-      newTodo: e.target.value,
+      newTodo: event.target.value,
     })
   }
 
-  onInputChangeMinutes = (e) => {
-    if (e.target.value < 1000) {
+  onInputChangeMinutes = (event) => {
+    if (event.target.value < 1000) {
       this.setState({
-        minutes: e.target.value,
+        minutes: event.target.value,
       })
     }
   }
 
-  onInputChangeSeconds = (e) => {
-    if (e.target.value < 60) {
+  onInputChangeSeconds = (event) => {
+    if (event.target.value < 60) {
       this.setState({
-        seconds: e.target.value,
+        seconds: event.target.value,
       })
     }
   }
 
-  onSubmit = (e) => {
+  onSubmit = (event) => {
     console.log('submit')
-    e.preventDefault()
+    event.preventDefault()
     const timer = +this.state.minutes * 60 + +this.state.seconds
     this.props.addNewTask(this.state.newTodo, timer)
     this.setState({
@@ -56,7 +54,7 @@ export default class NewTaskForm extends Component {
           placeholder="What needs to be done?"
           autoFocus
           required
-          onChange={(e) => this.onInputChangeTask(e)}
+          onChange={(event) => this.onInputChangeTask(event)}
           value={this.state.newTodo}
         />
         <input
@@ -64,14 +62,14 @@ export default class NewTaskForm extends Component {
           placeholder="Min"
           value={this.state.minutes}
           required
-          onChange={(e) => this.onInputChangeMinutes(e)}
+          onChange={(event) => this.onInputChangeMinutes(event)}
         />
         <input
           className="new-todo-form__timer"
           placeholder="Sec"
           value={this.state.seconds}
           required
-          onChange={(e) => this.onInputChangeSeconds(e)}
+          onChange={(event) => this.onInputChangeSeconds(event)}
         />
         <button type="submit" className="submit-btn" />
       </form>

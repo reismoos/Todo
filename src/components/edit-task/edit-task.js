@@ -1,8 +1,6 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 
-/* import './edit-task.css' */
-
 export default class EditTask extends Component {
   state = {
     newTask: this.props.taskDeskription,
@@ -12,9 +10,9 @@ export default class EditTask extends Component {
     addNewTask: PropTypes.func,
   }
 
-  onInputChange = (e) => {
+  onInputChange = (event) => {
     this.setState({
-      newTask: e.target.value,
+      newTask: event.target.value,
     })
   }
 
@@ -24,10 +22,10 @@ export default class EditTask extends Component {
         type="text"
         className="edit"
         placeholder="Task"
-        onChange={(e) => this.onInputChange(e)}
+        onChange={(event) => this.onInputChange(event)}
         value={this.state.newTask}
         autoFocus
-        onKeyDown={(e) => this.props.onEditKeyDown(e, this.state.newTask, this.props.id)}
+        onKeyDown={(event) => this.props.onEditKeyDown(event, this.state.newTask, this.props.id)}
       />
     )
   }

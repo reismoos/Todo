@@ -2,8 +2,6 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
-/* import './task.css' */
-
 export default class Task extends Component {
   state = {
     timeAgo: 'less than 5 seconds ago',
@@ -62,7 +60,7 @@ export default class Task extends Component {
 
   counting
 
-  componentDidUpdate(prepProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.state.startCounting !== prevState.startCounting) {
       if (this.state.startCounting) {
         this.counting = setInterval(() => {

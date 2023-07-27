@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types'
 
-/* import './footer.css' */
-
 const Footer = ({ onChangeFilter, filter, deleteAllCompleted, countActive }) => {
   const buttonsData = [
     { name: 'all', label: 'All' },
