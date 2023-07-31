@@ -1,32 +1,28 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-export default class EditTask extends Component {
-  state = {
-    newTask: this.props.taskDeskription,
+const EditTask = (props) => {
+  const [newTask, setNewTask] = useState(props.taskDeskription)
+
+  const onInputChange = (event) => {
+    setNewTask(event.target.value)
   }
 
-  static propTypes = {
-    addNewTask: PropTypes.func,
-  }
-
-  onInputChange = (event) => {
-    this.setState({
-      newTask: event.target.value,
-    })
-  }
-
-  render() {
-    return (
-      <input
-        type="text"
-        className="edit"
-        placeholder="Task"
-        onChange={(event) => this.onInputChange(event)}
-        value={this.state.newTask}
-        autoFocus
-        onKeyDown={(event) => this.props.onEditKeyDown(event, this.state.newTask, this.props.id)}
-      />
-    )
-  }
+  return (
+    <input
+      type="text"
+      className="edit"
+      placeholder="Task"
+      onChange={(event) => onInputChange(event)}
+      value={newTask}
+      autoFocus
+      onKeyDown={(event) => props.onEditKeyDown(event, newTask, props.id)}
+    />
+  )
 }
+
+EditTask.propTypes = {
+  addNewTask: PropTypes.func,
+}
+
+export default EditTask
